@@ -1,0 +1,35 @@
+int left = 0;
+        int right = 0;
+        int diff = 0;
+
+        for(int row = 0;row< arr.size();row++){
+            List<Integer> columns = arr.get(row);
+            for(int column = 0; column< columns.size();column++){
+                if(column == 0 && row ==0){
+                    left = left + columns.get(column);
+                }
+                if(column == arr.size()-1 && row == 0){
+                    right = right + columns.get(column);
+                    break;
+                }
+                if(column == 0 && row == columns.size()-1){
+                    right = right + columns.get(column);
+                    System.out.println(columns.get(column));
+                }if(row == arr.size()-1 && column == columns.size()-1){
+                    left = left + columns.get(column);
+                }else if((row != 0 && row != arr.size()-1)){
+                    left = left + columns.get(row);
+                    right = right + columns.get((columns.size()-1)-row);
+                    break;
+                }
+
+            }
+
+        }
+        if(left > right){
+            diff = left - right;
+        }else{
+            diff = right-left;
+        }
+        System.out.println(diff);
+        return diff;
