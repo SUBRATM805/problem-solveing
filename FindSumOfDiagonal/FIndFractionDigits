@@ -1,0 +1,26 @@
+        double posivitveC = 0;
+        double negetiveeC = 0;
+        double zeroC = 0;
+
+        List<BigDecimal> collect = l1.stream().map(e -> {
+            BigDecimal bigDecimal = new BigDecimal(e);
+            bigDecimal.setScale(4);
+            return bigDecimal;
+        }).collect(Collectors.toList());
+        for (Integer i : l1){
+            if(i.intValue() == 0){
+                zeroC++;
+            }else if(i.intValue() > 0){
+                posivitveC++;
+            }else if(i.intValue() < 0){
+                negetiveeC++;
+            }
+        }
+        DecimalFormat df = new DecimalFormat();
+        df.setMinimumFractionDigits(4);
+        posivitveC = posivitveC/l1.size();
+        negetiveeC = negetiveeC/l1.size();
+        zeroC = zeroC/l1.size();
+        System.out.println(df.format(posivitveC));
+        System.out.println(df.format(negetiveeC));
+        System.out.println(df.format(zeroC));
