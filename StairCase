@@ -1,0 +1,10 @@
+        for (int row = 0;row< n; row++){
+            for(int print = n-1;print>row;print--){
+                System.out.print(" ");
+            }
+            for(int print = 0;print<=row;print++){
+                System.out.print("#");
+            }
+            System.out.println();
+
+        }
